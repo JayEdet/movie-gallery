@@ -1,11 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+/* context */
+/* import { FavoriteProvider } from "./FavoriteProvider"; */
+
+/* Icons */
+import { MdOutlineBookmarkAdd } from "react-icons/md";
+import { MdOutlineBookmarkAdded } from "react-icons/md";
 const SingleDisplay = () => {
   /* movies id */
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+
+  /*  const { favNumber, setFavNumber } = useContext(FavoriteProvider); */
+
   useEffect(() => {
     async function fetchMovie() {
       try {
@@ -51,15 +60,33 @@ const SingleDisplay = () => {
 
   if (!movie) return <p className="text-white p-4">Loading...</p>;
 
+  /* add to favorite function */
+  /*   function addToFav() {
+    setChangeSvg(!changeSvg);
+    if (changeSvg) {
+      setFavNumber(favNumber + 1);
+    } else {
+      setFavNumber(favNumber - 1); // Optional: Handle un-favoriting
+    }
+  } */
   return (
-    <div className="flex px-4 py-16 md:p-16 lg:p-24 items-center text-white bg-mainColor-950 w-full h-full md:h-screen overflow-hidden">
-      <div className="card md:flex gap-8 w-full overflow-hidden">
-        <div className="img_div rounded-lg overflow-hidden">
+    <div className="flex px-4 py-16 md:p-16 lg:pt-48 items-center text-white bg-mainColor-950 w-full h-full md:h-screen overflow-hidden">
+      <div className="card md:flex gap-8 w-full  overflow-hidden">
+        <div className="img_div relative rounded-lg overflow-hidden">
           <img
             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
             className="w-full"
             alt=""
           />
+          {/* Add to favorite Button */}
+          <div className="absolute right-4 bottom-4 text-2xl text-bold color-mainColor-950">
+            {
+              <button
+                className="cursor-pointer "
+                /* title={changeSvg ? "add to favorite" : "added to favorite"} */
+              ></button>
+            }
+          </div>
         </div>
         <div className="description w-full pt-8 lg:pt-24 lg:w-[700px]">
           <h3 className="capitalize description_font ">{movie.title}</h3>

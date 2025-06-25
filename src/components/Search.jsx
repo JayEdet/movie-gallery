@@ -19,18 +19,18 @@ const Search = ({ searchInput, setSearchInput, setQuery }) => {
     setQuery("");
   }
   return (
-    <div className="flex items-center justify-between bg-white rounded-lg overflow-hidden p-1">
+    <div className="flex bg-white rounded-lg overflow-hidden p-2 w-full">
       <input
         type="text"
         placeholder="Search movie"
         value={searchInput}
-        className="bg-white rounded outline-none"
+        className="bg-white rounded outline-none px-1 w-full"
         onChange={(e) => setSearchInput(e.target.value)}
         onKeyDown={handlePressEnter}
       />
       {searchInput.trim().length > 0 && (
         <FaTimes
-          className="text-lg text-black cursor-pointer mr-2"
+          className="text-lg text-black cursor-pointer mr-1"
           onClick={removeInput}
         />
       )}

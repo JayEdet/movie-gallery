@@ -32,9 +32,10 @@ const MovieDisplay = ({ query, setQuery }) => {
   return (
     <div className="w-full  pt-24 bg-mainColor-950 ">
       {noResults && (
-        <div className="flex justify-center h-screen">
-          <p className="text-amber-100 text-2xl">
-            No such movie available, mbok fiak check!
+        <div className="flex justify-center h-screen items-center">
+          <p className="text-amber-100 text-2xl ">
+            No such movie available,{" "}
+            <span className="text-amber-500">mbok fiak check!</span>
           </p>
         </div>
       )}
