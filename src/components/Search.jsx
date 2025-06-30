@@ -19,7 +19,7 @@ const Search = ({ searchInput, setSearchInput, setQuery }) => {
     setQuery("");
   }
   return (
-    <div className="flex justify-end bg-white rounded-lg overflow-hidden p-2 w-full max-w-[400px] ">
+    <div className="flex justify-end bg-white rounded-lg overflow-hidden 1p-2 w-full max-w-[400px] p-2">
       <input
         type="text"
         placeholder="Search movie"
@@ -30,7 +30,7 @@ const Search = ({ searchInput, setSearchInput, setQuery }) => {
       />
       {searchInput.trim().length > 0 && (
         <FaTimes
-          className="text-lg text-black cursor-pointer mr-1"
+          className="text-lg cursor-pointer mr-1 text-gray-600"
           onClick={removeInput}
         />
       )}
